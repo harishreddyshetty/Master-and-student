@@ -112,7 +112,7 @@ class StudentLogin extends Component {
 
     return (
       <div className="login-container">
-        <h1 className="heading">Login</h1>
+        <h1 className="heading-student">Login</h1>
         <form className="login-form" onSubmit={this.onClickLogin}>
           <label className="labels" htmlFor="username">
             USERNAME

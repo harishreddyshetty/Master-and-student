@@ -15,6 +15,8 @@ class MasterLogin extends Component {
     this.setState(prevState => ({
       loginClicked: !prevState.loginClicked,
       signUpClicked: !prevState.signUpClicked,
+      username: '',
+      password: '',
     }))
   }
 
@@ -22,6 +24,8 @@ class MasterLogin extends Component {
     this.setState(prevState => ({
       signUpClicked: !prevState.signUpClicked,
       loginClicked: !prevState.loginClicked,
+      username: '',
+      password: '',
     }))
   }
 
