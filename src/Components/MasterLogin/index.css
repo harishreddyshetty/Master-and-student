@@ -1,0 +1,82 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+}
+
+.login-form-master {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-heading {
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 30px;
+}
+.login-signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  background-color: aqua;
+  width: 400px;
+  height: 350px;
+}
+
+.signUp-login-btn-container {
+  background-color: brown;
+  width: 400px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-element {
+  padding-left: 10px;
+  height: 28px;
+  width: 250px;
+  background-color: transparent;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid;
+  margin-bottom: 10px;
+}
+
+.labels {
+  font-size: 14px;
+  font-family: 'Roboto';
+  margin-bottom: 10px;
+}
+
+.login-btn {
+  height: 30px;
+  width: 250px;
+  border-radius: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid;
+}
+
+.signUp-login-btn {
+  height: 30px;
+  width: 250px;
+  border-radius: 5px;
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid;
+}
+
+.signUp-login-description {
+  font-size: 20px;
+}

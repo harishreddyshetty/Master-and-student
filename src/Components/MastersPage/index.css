@@ -1,0 +1,34 @@
+.questionsContainer {
+}
+
+.question-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-element-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.label-heading {
+  margin-bottom: 10px;
+}
+
+.number-input {
+  width: 60px;
+}
+
+.operator-input {
+  width: 60px;
+}
+
+.question-item-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 250px;
+  background-color: bisque;
+}

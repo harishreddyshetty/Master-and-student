@@ -1,0 +1,60 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: linear-gradient(to right, #43b5e6, #d865f7);
+}
+
+.master-student-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form-container {
+  border: 1px solid beige;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: white;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #342d36;
+  font-family: 'Roboto';
+  font-size: 25px;
+}
+
+.persons-img {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+}
+
+.container {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.master-student-btn {
+  background-color: transparent;
+  width: 150px;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-image: linear-gradient(to right, #43b5e6, #d865f7);
+  color: white;
+  border: 0px none;
+  font-size: 15px;
+}
