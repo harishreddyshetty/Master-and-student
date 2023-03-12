@@ -60,38 +60,73 @@ class MastersPage extends Component {
 
   zero = operator => (operator ? operator(0) : 0)
 
+  one = operator => (operator ? operator(1) : 1)
+
   plus = number => otherNumber => otherNumber + number
 
-  getAnswer = num1 => num1
+  getNumber = num1 => {
+    switch (num1) {
+      case 'zero':
+        return 0
+      case 'one':
+        return 1
+      case 'two':
+        return 2
+      case 'three':
+        return 3
+      case 'four':
+        return 4
+      case 'five':
+        return 5
+      case 'six':
+        return 6
+      case 'seven':
+        return 7
+      case 'eight':
+        return 8
+      case 'nine':
+        return 9
+      default:
+        return null
+    }
+  }
 
-  getOperator = operator => operator
+  getAnswer = (number1, number2, operatorValue) => {
+    switch (operatorValue) {
+      case 'plus':
+        return number1 + number2
+      case 'minus':
+        return number1 - number2
+      case 'times':
+        return number1 * number2
+      case 'dividedBy':
+        return Math.round(number1 / number2)
+
+      default:
+        return null
+    }
+  }
 
   renderQuestionsList = () => {
     const {questionsList} = this.state
-    if (questionsList === []) {
-      return <p>No question</p>
-    }
+
     return (
       <ul className="questions-list-container-ms">
         {questionsList.map(eachItem => {
           const {num1, num2, operator, id, studentAns} = eachItem
-          const answer = this.getAnswer(num1)
-          const operatorValue = this.getOperator(operator)
-          console.log(answer)
-          console.log(operatorValue)
-
-          const finalAnswer = this.getAnswer(num1)(
-            this.getOperator(operator)(this.getAnswer(num2)()),
-          )
-          console.log(finalAnswer)
+          const number1 = this.getNumber(num1)
+          const number2 = this.getNumber(num2)
+          const answer = this.getAnswer(number1, number2, operator)
 
           return (
             <li className="question-item-list" key={id}>
               <p className="input-details">{num1}</p>
               <p className="input-details">{operator}</p>
               <p className="input-details">{num2}</p>
-
-              {studentAns !== undefined && <p>{studentAns}</p>}
+              <p className="answer">{answer}</p>
+              {studentAns !== undefined && (
+                <p className="std-ans">{studentAns}</p>
+              )}
             </li>
           )
         })}
@@ -167,15 +202,24 @@ class MastersPage extends Component {
                   type="text"
                 />
               </div>
-              <button onClick={this.addInput} type="button">
+              <button className="btn" onClick={this.addInput} type="button">
                 Add
               </button>
             </div>
+            <div className="answers-heading-container">
+              <p className="answer-heading">Ans</p>
+              <p className="answer-heading">s-Ans</p>
+            </div>
             {this.renderQuestionsList()}
-
-            <button onClick={this.addToLocalStorage} type="button">
-              Save
-            </button>
+            <div className="btn-container">
+              <button
+                className="save-btn"
+                onClick={this.addToLocalStorage}
+                type="button"
+              >
+                Save
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -188,3 +232,10 @@ export default MastersPage
 //  const answer = this.getNumber(num1)(
 //             this.getOperator(operator)(this.getNumber(num2)),
 //           )
+
+//  const number1 = this.getAnswer(num1)
+//           const number2 = this.getAnswer(num2)
+//           const operatorValue = this.getOperator(operator)
+
+//           const finalAnswer = {number1}({operatorValue}({number2}()))
+//           console.log(finalAnswer)
