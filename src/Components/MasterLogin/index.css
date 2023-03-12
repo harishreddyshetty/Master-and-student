@@ -24,22 +24,27 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-image: linear-gradient(to right, #43b5e6, #d865f7);
 }
 
 .login-container {
-  background-color: aqua;
+  background-color: white;
   width: 400px;
   height: 350px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .signUp-login-btn-container {
-  background-color: brown;
+  background-color: #f03c57;
   width: 400px;
   height: 350px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .input-element {
