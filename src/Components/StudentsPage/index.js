@@ -5,7 +5,7 @@ import './index.css'
 class StudentsPage extends Component {
   onClickLogout = () => {
     const {history} = this.props
-    history.replace('/login')
+    history.replace('/')
   }
 
   renderQuestionsList = () => {
@@ -18,7 +18,7 @@ class StudentsPage extends Component {
     }
 
     return (
-      <ul>
+      <ul className="questions-list-container">
         {parsedList.map(eachItem => {
           const {num1, num2, operator, id} = eachItem
 
@@ -32,7 +32,7 @@ class StudentsPage extends Component {
           }
 
           return (
-            <li className="question-item-list" key={id}>
+            <li className="question-item-list-stud" key={id}>
               <p>{num1}</p>
               <p>{operator}</p>
               <p>{num2}</p>
@@ -51,18 +51,27 @@ class StudentsPage extends Component {
   render() {
     return (
       <div>
-        <nav>
-          <div>
-            <h1>Students Home Page</h1>
-            <button onClick={this.onClickLogout} type="button">
-              Logout
-            </button>
-          </div>
+        <nav className="nav-bar">
+          <h1 className="student-heading">Students Home Page</h1>
+          <button
+            className="logout-btn"
+            onClick={this.onClickLogout}
+            type="button"
+          >
+            Logout
+          </button>
         </nav>
 
-        <div>
-          <h1>Questions</h1>
-          {this.renderQuestionsList()}
+        <div className="students-page">
+          <img
+            className="students-img"
+            alt="students-img"
+            src="https://res.cloudinary.com/drl5lt54o/image/upload/v1678606831/Master-Student/6463164_ryeqyp.jpg"
+          />
+          <div className="questions-container">
+            <h1>Questions</h1>
+            {this.renderQuestionsList()}
+          </div>
         </div>
       </div>
     )

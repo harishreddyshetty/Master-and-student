@@ -58,27 +58,40 @@ class MastersPage extends Component {
     this.setState({operator: event.target.value})
   }
 
-  five = operator => (operator ? operator(5) : 5)
+  zero = operator => (operator ? operator(0) : 0)
+
+  plus = number => otherNumber => otherNumber + number
+
+  getAnswer = num1 => num1
+
+  getOperator = operator => operator
 
   renderQuestionsList = () => {
-    // const stringifiedList = localStorage.getItem('questionsList')
-    // const parsedList = JSON.parse(stringifiedList)
     const {questionsList} = this.state
-
     if (questionsList === []) {
       return <p>No question</p>
     }
-
     return (
-      <ul>
+      <ul className="questions-list-container-ms">
         {questionsList.map(eachItem => {
-          const {num1, num2, operator, id} = eachItem
+          const {num1, num2, operator, id, studentAns} = eachItem
+          const answer = this.getAnswer(num1)
+          const operatorValue = this.getOperator(operator)
+          console.log(answer)
+          console.log(operatorValue)
+
+          const finalAnswer = this.getAnswer(num1)(
+            this.getOperator(operator)(this.getAnswer(num2)()),
+          )
+          console.log(finalAnswer)
 
           return (
             <li className="question-item-list" key={id}>
-              <p>{num1}</p>
-              <p>{operator}</p>
-              <p>{num2}</p>
+              <p className="input-details">{num1}</p>
+              <p className="input-details">{operator}</p>
+              <p className="input-details">{num2}</p>
+
+              {studentAns !== undefined && <p>{studentAns}</p>}
             </li>
           )
         })}
@@ -86,61 +99,84 @@ class MastersPage extends Component {
     )
   }
 
+  onClickLogout = () => {
+    const {history} = this.props
+    history.replace('/')
+  }
+
   render() {
     const {num1, num2, operator} = this.state
 
     return (
       <div>
+        <nav className="nav-bar">
+          <h1 className="master-page-heading">Masters Home Page</h1>
+          <button
+            className="logout-btn"
+            onClick={this.onClickLogout}
+            type="button"
+          >
+            Logout
+          </button>
+        </nav>
+
         <div className="questionsContainer">
-          <h1>Questions List</h1>
-          <div className="question-input-container">
-            <div className="input-element-container">
-              <label className="label-heading" htmlFor="number1">
-                Number
-              </label>
-              <input
-                value={num1}
-                onChange={this.onChangeNum1}
-                className="number-input"
-                id="number1"
-                type="text"
-              />
-            </div>
+          <img
+            className="teachers-img"
+            alt="teachers-img"
+            src="https://res.cloudinary.com/drl5lt54o/image/upload/v1678605541/Master-Student/3670301_w4mmzk.jpg"
+          />
+          <div className="masters-questions-container">
+            <h1 className="master-pageQuestion-heading">Questions List</h1>
+            <div className="question-input-container">
+              <div className="input-element-container">
+                <label className="label-heading" htmlFor="number1">
+                  Number
+                </label>
+                <input
+                  value={num1}
+                  onChange={this.onChangeNum1}
+                  className="number-input"
+                  id="number1"
+                  type="text"
+                />
+              </div>
 
-            <div className="input-element-container">
-              <label className="label-heading" htmlFor="number1">
-                Operator
-              </label>
-              <input
-                onChange={this.onChangeOperator}
-                value={operator}
-                className="operator-input"
-                id="operator"
-                type="text"
-              />
-            </div>
+              <div className="input-element-container">
+                <label className="label-heading" htmlFor="number1">
+                  Operator
+                </label>
+                <input
+                  onChange={this.onChangeOperator}
+                  value={operator}
+                  className="operator-input"
+                  id="operator"
+                  type="text"
+                />
+              </div>
 
-            <div className="input-element-container">
-              <label className="label-heading" htmlFor="number2">
-                Number
-              </label>
-              <input
-                onChange={this.onChangeNum2}
-                value={num2}
-                className="number-input"
-                id="number2"
-                type="text"
-              />
+              <div className="input-element-container">
+                <label className="label-heading" htmlFor="number2">
+                  Number
+                </label>
+                <input
+                  onChange={this.onChangeNum2}
+                  value={num2}
+                  className="number-input"
+                  id="number2"
+                  type="text"
+                />
+              </div>
+              <button onClick={this.addInput} type="button">
+                Add
+              </button>
             </div>
-            <button onClick={this.addInput} type="button">
-              Add
+            {this.renderQuestionsList()}
+
+            <button onClick={this.addToLocalStorage} type="button">
+              Save
             </button>
           </div>
-          {this.renderQuestionsList()}
-
-          <button onClick={this.addToLocalStorage} type="button">
-            Save
-          </button>
         </div>
       </div>
     )
@@ -148,3 +184,7 @@ class MastersPage extends Component {
 }
 
 export default MastersPage
+
+//  const answer = this.getNumber(num1)(
+//             this.getOperator(operator)(this.getNumber(num2)),
+//           )

@@ -1,4 +1,7 @@
 .questionsContainer {
+  display: flex;
+  height: 80vh;
+  align-items: center;
 }
 
 .question-input-container {
@@ -28,7 +31,40 @@
 .question-item-list {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-bottom: 0px;
+  margin-top: 0px;
   width: 250px;
+}
+
+.input-details {
+  width: 70px;
+  margin-right: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.teachers-img {
+  width: 700px;
+}
+
+.masters-questions-container {
+  margin-left: 30px;
   background-color: bisque;
+  padding: 10px;
+  border-radius: 8px;
+  padding-left: 20px;
+}
+
+.questions-list-container-ms {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.master-pageQuestion-heading {
+  text-align: center;
+}
+
+.master-page-heading {
+  margin-left: auto;
 }

@@ -1,3 +1,67 @@
 .answer-input {
   width: 50px;
 }
+
+.students-bg {
+  height: 100vh;
+  padding: 5px;
+  padding-top: 0px;
+  background-size: cover;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  background-color: antiquewhite;
+  margin-top: 0px;
+  padding-top: 0px;
+  justify-content: center;
+}
+
+.student-heading {
+  margin-left: auto;
+}
+
+.logout-btn {
+  margin-left: auto;
+  margin-right: 50px;
+  background-color: transparent;
+  border: 1px solid;
+  border-radius: 5px;
+  height: 30px;
+  width: 80px;
+  cursor: pointer;
+}
+
+.questions-list-container {
+  list-style-type: none;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.questions-container {
+  margin-left: 100px;
+  border: 2px solid;
+  border-radius: 3px;
+  margin-top: 10px;
+  width: 400px;
+  padding-left: 10px;
+}
+
+.question-item-list-stud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 250px;
+}
+
+.students-img {
+  width: 600px;
+  height: 500px;
+}
+
+.students-page {
+  display: flex;
+  align-items: center;
+  height: 80vh;
+}
